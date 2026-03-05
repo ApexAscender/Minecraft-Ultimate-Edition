@@ -1,4 +1,4 @@
-name: Nightly Release
+name: v0.1 Beta Release
 
 on:
   workflow_dispatch: 
@@ -29,13 +29,13 @@ jobs:
       run: 7z a -r LCEWindows64.zip ./x64/Release/*
 
     - name: Update release
-      uses: andelf/nightly-release@main
+      uses: andelf/v0.1-beta-release@main
 
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: nightly
-        name: Nightly Release
+        tag_name: v0.1-Beta
+        name: v0.1 Beta Release
         body: Requires at least Windows 7 and DirectX 11 compatible GPU to run. Compiled with MSVC v14.44.35207 in Release mode with Whole Program Optimization, as well as `/O2 /Ot /Oi /Ob3 /GF /fp:precise`.
         files: |
             LCEWindows64.zip
